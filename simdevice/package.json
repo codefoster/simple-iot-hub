@@ -1,0 +1,16 @@
+{
+  "name": "simdevice",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jeremy Foster <jeremy.foster@live.com> (http://codefoster.com)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "azure-iot-device": "^1.0.12",
+    "azure-iot-device-amqp": "^1.0.12"
+  }
+}
