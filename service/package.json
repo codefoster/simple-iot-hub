@@ -1,7 +1,7 @@
 {
-  "name": "azure-iot",
+  "name": "simple-iot-hub-service",
   "version": "0.1.0",
-  "description": "",
+  "description": "Simple IoT Hub service code",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
