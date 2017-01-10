@@ -5,6 +5,7 @@ let eventhubs = require('azure-event-hubs');
 var eventhubsClient = eventhubs.Client.fromConnectionString('HostName=airbus-hub.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=sELHu1v/5q1Br7VR0j14C9oV/yeXT3Ucb3nxxjN1v1o=');
 var iothubClient = iothub.Client.fromConnectionString('HostName=airbus-hub.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=sELHu1v/5q1Br7VR0j14C9oV/yeXT3Ucb3nxxjN1v1o=');
 
+//open event hubs client for handling D2C messages
 eventhubsClient.open()
     .then(() => console.log('ready'))
     .then(eventhubsClient.getPartitionIds.bind(eventhubsClient))
@@ -21,6 +22,7 @@ eventhubsClient.open()
         )
     );
 
+//open iothub client for handling C2D messages
 iothubClient.open(err => {
     // send a C2D message repeatedly
     setInterval(() => {
