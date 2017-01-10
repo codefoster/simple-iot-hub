@@ -1,27 +1,18 @@
-'use strict';
+let eventhubs = require('azure-event-hubs');
+var client = eventhubs.Client.fromConnectionString('HostName=airbus-hub.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=sELHu1v/5q1Br7VR0j14C9oV/yeXT3Ucb3nxxjN1v1o=');
 
-var EventHubClient = require('azure-event-hubs').Client;
-var connectionString = 'HostName=iothub33.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=52T3/o9LGr/0JKfj+kAMSiwaIWBgQBtlqTPaN5Uc2W4=';
-var printError = function (err) {
-  console.log(err.message);
-};
-
-var printMessage = function (message) {
-  console.log('Message received: ');
-  console.log(JSON.stringify(message.body));
-  console.log('');
-};
-
-var client = EventHubClient.fromConnectionString(connectionString);
 client.open()
+    .then(() => console.log('ready'))
     .then(client.getPartitionIds.bind(client))
-    .then(function (partitionIds) {
-        return partitionIds.map(function (partitionId) {
-            return client.createReceiver('$Default', partitionId, { 'startAfterTime' : Date.now()}).then(function(receiver) {
-                console.log('Created partition receiver: ' + partitionId)
-                receiver.on('errorReceived', printError);
-                receiver.on('message', printMessage);
-            });
-        });
-    })
-    .catch(printError);
+    .then(pids =>
+        //enumerate the partitions
+        pids.map(pid =>
+            client.createReceiver('$Default', pid, { 'startAfterTime': Date.now() })
+                .then(receiver =>
+                    //handle D2C messages
+                    receiver.on('message', msg =>
+                        console.log('D2C message received <--')
+                    )
+                )
+        )
+    );
