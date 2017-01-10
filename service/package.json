@@ -10,6 +10,8 @@
   "author": "Jeremy Foster <jeremy.foster@live.com> (http://codefoster.com)",
   "license": "Apache-2.0",
   "dependencies": {
-    "azure-event-hubs": "0.0.3"
+    "azure-event-hubs": "0.0.3",
+    "azure-iothub":"1.0.15",
+    "azure-iot-common": "1.0.13"
   }
 }
