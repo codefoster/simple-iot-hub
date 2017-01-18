@@ -2,8 +2,9 @@ var iothub = require('azure-iothub');
 var common = require('azure-iot-common');
 let eventhubs = require('azure-event-hubs');
 
-var eventhubsClient = eventhubs.Client.fromConnectionString('HostName=airbus-hub.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=sELHu1v/5q1Br7VR0j14C9oV/yeXT3Ucb3nxxjN1v1o=');
-var iothubClient = iothub.Client.fromConnectionString('HostName=airbus-hub.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=sELHu1v/5q1Br7VR0j14C9oV/yeXT3Ucb3nxxjN1v1o=');
+var connectionString = 'HostName=dmg-demo.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=1eN24fvtuKEgLgSBIiRxeoj5SYg2eWfKSzK7MPJT2lU=';
+var eventhubsClient = eventhubs.Client.fromConnectionString(connectionString);
+var iothubClient = iothub.Client.fromConnectionString(connectionString);
 
 //open event hubs client for handling D2C messages
 eventhubsClient.open()
