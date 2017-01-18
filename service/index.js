@@ -9,7 +9,7 @@ var iothubClient = iothub.Client.fromConnectionString(connectionString);
 //open event hubs client for handling D2C messages
 eventhubsClient.open()
     .then(() => console.log('ready'))
-    .then(eventhubsClient.getPartitionIds.bind(eventhubsClient))
+    .then(() => eventhubsClient.getPartitionIds())
     .then(pids =>
         //enumerate the partitions
         pids.map(pid =>
