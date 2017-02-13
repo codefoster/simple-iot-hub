@@ -1,6 +1,6 @@
 let deviceAmqp = require('azure-iot-device-amqp');
 var device = require('azure-iot-device');
-var client = deviceAmqp.clientFromConnectionString('HostName=dmg-demo.azure-devices.net;DeviceId=device1;SharedAccessKey=31mHmA3FckeAFa821HBneGeiuMc4UHHabST9FnyYh+A=');
+var client = deviceAmqp.clientFromConnectionString('<DEVICE_CONNECTION_STRING>');
 
 client.open(err => {
     //handle C2D messages
