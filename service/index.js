@@ -2,7 +2,7 @@ var iothub = require('azure-iothub');
 var common = require('azure-iot-common');
 let eventhubs = require('azure-event-hubs');
 
-var connectionString = 'HostName=dmg-demo.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey=1eN24fvtuKEgLgSBIiRxeoj5SYg2eWfKSzK7MPJT2lU=';
+var connectionString = '<IOTHUB_CONNECTION_STRING>';
 var eventhubsClient = eventhubs.Client.fromConnectionString(connectionString);
 var iothubClient = iothub.Client.fromConnectionString(connectionString);
 
