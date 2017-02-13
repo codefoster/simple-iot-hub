@@ -10,4 +10,10 @@ npm install
 node .
 ```
 
+You'll need an IoT Hub in Azure for this to work. Go to [portal.azure.com](portal.azure.com), log in to your subscription, and create one.
+
+Before this demo will work, you'll need to create an IoT Hub in Azure, add the connection string for the `service` access policy to the `/service/index.js` file, then create register a device with Azure called `device1` and add its connection string to the `/device/index.js` file.
+
+Then run the service by going to the project root in your terminal and typing `node service` and then (in a new terminal window) `node device`.
+
 You should see D2C and C2D messages going back and forth.
