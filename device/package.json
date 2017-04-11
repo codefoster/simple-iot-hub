@@ -10,7 +10,7 @@
   "author": "Jeremy Foster <jeremy.foster@live.com> (http://codefoster.com)",
   "license": "Apache-2.0",
   "dependencies": {
-    "azure-iot-device": "^1.0.12",
-    "azure-iot-device-amqp": "^1.0.12"
+    "azure-iot-device": "^1",
+    "azure-iot-device-amqp": "^1"
   }
 }
