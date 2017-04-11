@@ -1,8 +1,11 @@
 let deviceAmqp = require('azure-iot-device-amqp');
-var device = require('azure-iot-device');
-var client = deviceAmqp.clientFromConnectionString(process.env.DEVICE_CONNECTION_STRING);
+let device = require('azure-iot-device');
+let client = deviceAmqp.clientFromConnectionString(process.env.DEVICE_CONNECTION_STRING);
 
 client.open(err => {
+    let device = 'simdevice1';
+    console.log(`acting as ${device}`);
+
     //handle C2D messages
     client.on('message', msg => {
         client.complete(msg, () => console.log('<-- cloud message received'));
@@ -10,8 +13,8 @@ client.open(err => {
 
     // send a D2C message repeatedly
     setInterval(function () {
-        var message = new device.Message(JSON.stringify({
-            deviceId: 'simdevice1',
+        let message = new device.Message(JSON.stringify({
+            deviceId: device,
             value: Math.random()
         }));
         console.log('sending message to cloud -->');

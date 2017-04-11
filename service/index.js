@@ -1,10 +1,10 @@
-var iothub = require('azure-iothub');
-var common = require('azure-iot-common');
+let iothub = require('azure-iothub');
+let common = require('azure-iot-common');
 let eventhubs = require('azure-event-hubs');
 
-var connectionString = process.env.IOTHUB_CONNECTION_STRING;
-var eventhubsClient = eventhubs.Client.fromConnectionString(connectionString);
-var iothubClient = iothub.Client.fromConnectionString(connectionString);
+let connectionString = process.env.IOTHUB_CONNECTION_STRING;
+let eventhubsClient = eventhubs.Client.fromConnectionString(connectionString);
+let iothubClient = iothub.Client.fromConnectionString(connectionString);
 
 //open event hubs client for handling D2C messages
 eventhubsClient.open()
