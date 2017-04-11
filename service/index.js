@@ -2,7 +2,7 @@ var iothub = require('azure-iothub');
 var common = require('azure-iot-common');
 let eventhubs = require('azure-event-hubs');
 
-var connectionString = '<IOTHUB_CONNECTION_STRING>';
+var connectionString = process.env.IOTHUB_CONNECTION_STRING;
 var eventhubsClient = eventhubs.Client.fromConnectionString(connectionString);
 var iothubClient = iothub.Client.fromConnectionString(connectionString);
 
@@ -17,7 +17,7 @@ eventhubsClient.open()
                 .then(receiver =>
                     //handle D2C messages
                     receiver.on('message', msg =>
-                        console.log('D2C message received <--')
+                        console.log('<-- device message received')
                     )
                 )
         )
@@ -25,10 +25,14 @@ eventhubsClient.open()
 
 //open iothub client for handling C2D messages
 iothubClient.open(err => {
+    if(err) console.log('Error opening iothubClient: ' + err);
     // send a C2D message repeatedly
     setInterval(() => {
-      var message = new common.Message(JSON.stringify({ text: 'reset-request' }));
-      console.log('Sending C2D message -->');
-      iothubClient.send('device1', message, (err, res) => { });
+        let device = 'simdevice1';
+        let message = new common.Message(JSON.stringify({ text: 'reset-request' }));
+        console.log(`sending message to ${device} -->`);
+        iothubClient.send(device, message, (err, res) => {
+            if (err) console.log(err);
+        });
     }, 5000);
 });
