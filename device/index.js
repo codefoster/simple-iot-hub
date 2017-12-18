@@ -1,5 +1,7 @@
 let deviceAmqp = require('azure-iot-device-amqp');
 let device = require('azure-iot-device');
+
+require('dotenv').config();
 let client = deviceAmqp.clientFromConnectionString(process.env.DEVICE_CONNECTION_STRING);
 
 client.open(err => {

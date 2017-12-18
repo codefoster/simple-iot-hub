@@ -2,6 +2,7 @@ let iothub = require('azure-iothub');
 let common = require('azure-iot-common');
 let eventhubs = require('azure-event-hubs');
 
+require('dotenv').config();
 let connectionString = process.env.IOTHUB_CONNECTION_STRING;
 let eventhubsClient = eventhubs.Client.fromConnectionString(connectionString);
 let iothubClient = iothub.Client.fromConnectionString(connectionString);

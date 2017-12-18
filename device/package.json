@@ -11,6 +11,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "azure-iot-device": "^1",
-    "azure-iot-device-amqp": "^1"
+    "azure-iot-device-amqp": "^1",
+    "dotenv": "^4.0.0"
   }
 }
