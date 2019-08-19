@@ -8,6 +8,9 @@ let eventhubsClient = eventhubs.Client.fromConnectionString(connectionString);
 let iothubClient = iothub.Client.fromConnectionString(connectionString);
 
 //open event hubs client for handling D2C messages
+console.log('Connecting using the following connection string:');
+console.log(connectionString);
+
 eventhubsClient.open()
     .then(() => console.log('ready'))
     .then(() => eventhubsClient.getPartitionIds())
