@@ -1,6 +1,6 @@
 {
   "name": "simple-iot-hub-device",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Simple IoT Hub device code",
   "main": "index.js",
   "scripts": {
